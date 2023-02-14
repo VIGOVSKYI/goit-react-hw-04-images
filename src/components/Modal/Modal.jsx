@@ -10,17 +10,17 @@ const Modal = ({ close, children }) => {
   useEffect(() => {
     document.addEventListener('keydown', closeModal);
     return () => {
-      document.removeEventListener("keydown", closeModal);
+      document.removeEventListener('keydown', closeModal);
     };
   });
-    
-  const closeModal = ({ target, currentTarget, code }) => {
+
+const closeModal = ({ target, currentTarget, code }) => {
     if (target === currentTarget || code === 'Escape') {
       close();
     }
   };
 
-  return createPortal(
+return createPortal(
     <div onClick={closeModal} className={styles.overlay}>
       <div className={styles.modal}>{children}</div>
     </div>,
